@@ -1,6 +1,7 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { DocumentEntityHelper } from 'src/utils/document-entity.helper';
 
+//bid's schema
 @Schema({ timestamps: true })
 export class Bid extends DocumentEntityHelper {
   @Prop({ required: true })

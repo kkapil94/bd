@@ -4,6 +4,8 @@ import { SERVICE_TYPE } from 'src/constants/service.constants';
 import { DocumentEntityHelper } from 'src/utils/document-entity.helper';
 
 export type ServiceDocument = HydratedDocument<Service>;
+
+//services schema
 @Schema({ timestamps: true })
 export class Service extends DocumentEntityHelper {
   @Prop({ enum: Object.values(SERVICE_TYPE), required: true, type: String })

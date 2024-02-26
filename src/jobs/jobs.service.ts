@@ -8,10 +8,12 @@ import { CreateJobDto } from './dto/create-job.dto';
 export class JobsService {
   constructor(@InjectModel(JOB_MODEL) private jobModel: Model<JobDocument>) {}
 
+  //get jobs form db
   async getAllJobs(): Promise<Job[]> {
     return await this.jobModel.find();
   }
 
+  //create jobs
   async createJob(createJobDto: CreateJobDto): Promise<Job> {
     const { budgetAndTimeline, clientDetails, services } = createJobDto;
     try {

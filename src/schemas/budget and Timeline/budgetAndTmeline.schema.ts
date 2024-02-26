@@ -4,6 +4,7 @@ import {
   EstimateTimelineSchema,
 } from './estimate-time.schema';
 
+//Budget and timeline schema
 @Schema({ timestamps: true })
 export class BudgetAndTimeline {
   @Prop({ required: true })

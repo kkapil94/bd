@@ -2,6 +2,7 @@ import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { Address, AddressSchema } from 'src/common/address.schema';
 import { SERVICE_MODEL, Service } from '../serviceSchema/service.schema';
 
+//Client details schema
 @Schema()
 export class ClientDetails {
   @Prop({ required: true })

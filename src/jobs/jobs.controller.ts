@@ -6,11 +6,13 @@ import { CreateJobDto } from './dto/create-job.dto';
 @Controller('jobs')
 export class JobsController {
   constructor(private jobsService: JobsService) {}
+  //fetch jobs handler
   @Get()
   getAllJobs(): Promise<Job[]> {
     return this.jobsService.getAllJobs();
   }
 
+  //create jobs handler
   @Post()
   createJob(@Body() createJobDto: CreateJobDto): Promise<Job> {
     return this.jobsService.createJob(createJobDto);

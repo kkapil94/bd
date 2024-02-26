@@ -5,6 +5,7 @@ import {
   MongooseOptionsFactory,
 } from '@nestjs/mongoose';
 
+//database config
 @Injectable()
 export class MongooseConfigService implements MongooseOptionsFactory {
   constructor(private config: ConfigService) {}

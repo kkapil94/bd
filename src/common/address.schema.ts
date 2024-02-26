@@ -1,5 +1,6 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 
+//address schema
 @Schema({ timestamps: true })
 export class Address {
   @Prop({ required: true })

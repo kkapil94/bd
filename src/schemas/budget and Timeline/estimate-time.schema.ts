@@ -1,5 +1,6 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 
+//Estimate timeline schema
 @Schema()
 export class EstimateTimeline {
   @Prop({ required: true })

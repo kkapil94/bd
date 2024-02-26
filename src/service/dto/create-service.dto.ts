@@ -2,6 +2,7 @@ import { Type } from 'class-transformer';
 import { IsEnum, IsNotEmpty, IsNumber } from 'class-validator';
 import { SERVICE_TYPE } from 'src/constants/service.constants';
 
+//create service dto
 export class CreateServiceDto {
   @IsNotEmpty()
   @IsEnum(SERVICE_TYPE)

@@ -1,3 +1,4 @@
+//service types
 export enum SERVICE_TYPE {
   BIM_INTEGRATION = 'Bim Integration',
   ARCHITECTURAL_DRAWINGS = 'Architectural Drwaings',

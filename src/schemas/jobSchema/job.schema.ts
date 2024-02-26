@@ -15,6 +15,7 @@ import { DocumentEntityHelper } from 'src/utils/document-entity.helper';
 
 export type JobDocument = HydratedDocument<Job>;
 
+//jobs schema
 @Schema({ timestamps: true })
 export class Job extends DocumentEntityHelper {
   @Prop({ required: true, type: ClientDetailsSchema })
