@@ -10,12 +10,15 @@ import {
   BudgetAndTimeline,
   BudgetAndTimelineSchema,
 } from '../budget and Timeline/budgetAndTmeline.schema';
-import { Document } from 'mongoose';
+import { HydratedDocument, now } from 'mongoose';
+import { DocumentEntityHelper } from 'src/utils/document-entity.helper';
+
+export type JobDocument = HydratedDocument<Job>;
 
 @Schema({ timestamps: true })
-export class Job {
+export class Job extends DocumentEntityHelper {
   @Prop({ required: true, type: ClientDetailsSchema })
-  client_details: ClientDetails;
+  clientDetails: ClientDetails;
 
   @Prop({ required: true, ref: SERVICE_MODEL })
   services: Service[];
@@ -25,15 +28,20 @@ export class Job {
 
   @Prop({
     required: true,
-    enum: Object.keys(JOB_STATUS),
+    enum: Object.values(JOB_STATUS),
     default: JOB_STATUS.PENDING,
   })
-  job_status: JOB_STATUS;
+  jobStatus: JOB_STATUS;
 
   @Prop({ required: true, type: BudgetAndTimelineSchema })
-  budget_and_timeline: BudgetAndTimeline;
+  budgetAndTimeline: BudgetAndTimeline;
+
+  @Prop({ default: now })
+  createdAt: Date;
+
+  @Prop({ default: now })
+  updatedAt: Date;
 }
 
-export type JobDocument = Job & Document;
 export const JOB_MODEL = Job.name;
 export const JobSchema = SchemaFactory.createForClass(Job);

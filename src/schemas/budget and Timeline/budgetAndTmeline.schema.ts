@@ -1,15 +1,19 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
+import {
+  EstimateTimeline,
+  EstimateTimelineSchema,
+} from './estimate-time.schema';
 
 @Schema({ timestamps: true })
 export class BudgetAndTimeline {
   @Prop({ required: true })
-  itemized_cost_structure: string;
+  itemizedCostStructure: string;
 
-  @Prop({ required: true })
-  estimate_timeline: string;
+  @Prop({ required: true, type: EstimateTimelineSchema })
+  estimateTimeline: EstimateTimeline;
 
   @Prop()
-  other_details: string;
+  otherDetails: string;
 }
 
 export const BUDGET_AND_TIMELINE_MODEL = BudgetAndTimeline.name;

@@ -3,6 +3,9 @@ import { ConfigModule } from '@nestjs/config';
 import { DatabaseModule } from './infrastructure/mongoose/database.module';
 import { MongooseModelModule } from './schemas/mongoose-model.module';
 import { ServiceModule } from './service/service.module';
+import { JobsService } from './jobs/jobs.service';
+import { JobsController } from './jobs/jobs.controller';
+import { JobsModule } from './jobs/jobs.module';
 
 @Module({
   imports: [
@@ -10,8 +13,9 @@ import { ServiceModule } from './service/service.module';
     DatabaseModule,
     MongooseModelModule,
     ServiceModule,
+    JobsModule,
   ],
-  controllers: [],
-  providers: [],
+  controllers: [JobsController],
+  providers: [JobsService],
 })
 export class AppModule {}

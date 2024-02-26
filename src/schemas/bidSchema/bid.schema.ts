@@ -1,21 +1,22 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
+import { DocumentEntityHelper } from 'src/utils/document-entity.helper';
 
 @Schema({ timestamps: true })
-export class Bid {
+export class Bid extends DocumentEntityHelper {
   @Prop({ required: true })
   bid_date: string;
 
   @Prop({ required: true })
-  bid_price: string;
+  bidPrice: string;
 
   @Prop({ required: true })
   bidder: string;
 
   @Prop({ required: true })
-  submission_no: string;
+  submissionNumber: string;
 
   @Prop({ required: true, default: [] })
-  user_badges: string[];
+  userBadges: string[];
 }
 
 export const BID_MODEL = Bid.name;

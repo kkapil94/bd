@@ -15,9 +15,6 @@ export class ClientDetails {
 
   @Prop({ type: AddressSchema, required: true })
   address: Address;
-
-  @Prop({ required: true, ref: SERVICE_MODEL })
-  services: Service;
 }
 
 export const CLIENT_DETAILS_MODEL = ClientDetails.name;
