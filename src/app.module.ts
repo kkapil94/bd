@@ -6,6 +6,7 @@ import { ServiceModule } from './service/service.module';
 import { JobsService } from './jobs/jobs.service';
 import { JobsController } from './jobs/jobs.controller';
 import { JobsModule } from './jobs/jobs.module';
+import { ChatModule } from './chat/chat.module';
 
 @Module({
   imports: [
@@ -14,6 +15,7 @@ import { JobsModule } from './jobs/jobs.module';
     MongooseModelModule,
     ServiceModule,
     JobsModule,
+    ChatModule,
   ],
   controllers: [JobsController],
   providers: [JobsService],

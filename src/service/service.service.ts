@@ -23,19 +23,19 @@ export class ServiceService {
     @InjectModel(SERVICE_MODEL) private serviceModel: Model<ServiceDocument>,
   ) {}
 
-  async getServiceById(@Param('id') id: number): Promise<Service> {
-    try {
-      const service = await this.serviceModel.findOne({ id });
-      if (!service) {
-        throw new NotFoundException();
-      }
-      return service;
-    } catch (error) {
-      console.log(error);
+  // async getServiceById(@Param('id') id: number): Promise<Service> {
+  //   try {
+  //     const service = await this.serviceModel.findOne({ id });
+  //     if (!service) {
+  //       throw new NotFoundException();
+  //     }
+  //     return service;
+  //   } catch (error) {
+  //     console.log(error);
 
-      throw new InternalServerErrorException();
-    }
-  }
+  //     throw new InternalServerErrorException();
+  //   }
+  // }
 
   async getAllServices(): Promise<Service[]> {
     try {

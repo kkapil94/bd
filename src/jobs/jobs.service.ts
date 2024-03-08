@@ -1,4 +1,8 @@
-import { Injectable } from '@nestjs/common';
+import {
+  BadRequestException,
+  Injectable,
+  NotFoundException,
+} from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
 import { JOB_MODEL, Job, JobDocument } from 'src/schemas/jobSchema/job.schema';
@@ -15,15 +19,31 @@ export class JobsService {
 
   //create jobs
   async createJob(createJobDto: CreateJobDto): Promise<Job> {
-    const { budgetAndTimeline, clientDetails, services } = createJobDto;
+    const { clientDetails } = createJobDto;
     try {
       return await this.jobModel.create({
-        budgetAndTimeline,
         clientDetails,
-        services,
       });
     } catch (error) {
-      console.log(error);
+      throw new BadRequestException();
     }
   }
+
+  //update jobs
+  // async updateJob(id:number, updateJobDto: UpdateJobDto):Promise<Job>{
+  //   const {} = updateJobDto;
+
+  //   const job = await this.jobModel.findById(id);
+
+  //   if(!job){
+  //     throw new NotFoundException();
+  //   };
+
+  //   try {
+  //     const updatedJob = await this.jobModel.updateOne({_id:},{})
+  //   } catch (error) {
+
+  //   }
+  //
+  // }
 }
